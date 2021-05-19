@@ -14,16 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import {Button, ButtonView} from "./button.js";
-import {CheckBox} from "./checkbox.js";
-import {Tab} from "./tab.js";
-import {DOMMenu} from "./menu.js";
-import {WheelFilterView} from "./wheelfilter.js";
-import {GestureFilterView} from "./gesturefilter.js";
-import {PointerDownFilterView} from "./pointerdownfilter.js";
-import {DoubleClickFilterView} from "./doubleclickfilter.js";
+export class DoubleClickFilterView {
+    init() {
+        this.addEventListener("dblclick", "DoubleClickFilterView.dblClick");
+    }
 
-export const widgets = {
-    expanders: [Button, ButtonView, CheckBox, Tab, WheelFilterView, GestureFilterView, PointerDownFilterView, DoubleClickFilterView],
-    classes: [DOMMenu]
-};
+    dblClick(evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+    }
+}
